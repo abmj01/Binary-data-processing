@@ -1,0 +1,12 @@
+# ninja log v5
+6	841	7230634744953348	CMakeFiles/Apc_binary_files_exc.dir/main.cpp.obj	9fe5307d7e62a7cd
+841	1077	7230634747228881	Apc_binary_files_exc.exe	8543df83f99cb103
+32	541	7230663885045768	CMakeFiles/Apc_binary_files_exc.dir/person.cpp.obj	be9c2403e7377423
+4	552	7230663885055807	CMakeFiles/Apc_binary_files_exc.dir/main.cpp.obj	9fe5307d7e62a7cd
+552	748	7230663887172069	Apc_binary_files_exc.exe	331e5c45f7b91044
+3	482	7230664556557955	CMakeFiles/Apc_binary_files_exc.dir/main.cpp.obj	9fe5307d7e62a7cd
+483	659	7230664558370700	Apc_binary_files_exc.exe	331e5c45f7b91044
+4	492	7230665353410012	CMakeFiles/Apc_binary_files_exc.dir/main.cpp.obj	9fe5307d7e62a7cd
+493	680	7230665355253703	Apc_binary_files_exc.exe	331e5c45f7b91044
+4	494	7230665810424041	CMakeFiles/Apc_binary_files_exc.dir/main.cpp.obj	9fe5307d7e62a7cd
+495	652	7230665812093119	Apc_binary_files_exc.exe	331e5c45f7b91044
