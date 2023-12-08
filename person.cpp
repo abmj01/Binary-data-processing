@@ -6,7 +6,7 @@ Person::Person() :
         age{},
         height{} {
 }
-
+// ascci to binary
 void Person::serialize(Person &person, const std::string &filename) {
     std::ofstream outFile{filename, std::ios::binary};
     if (!outFile)
@@ -25,7 +25,7 @@ void Person::serialize(Person &person, const std::string &filename) {
 
 }
 
-
+//binary to ascii
 void Person::deserialize(Person & person, const std::string& filename) {
     std::ifstream inFile{filename, std::ios::binary};
     if (!inFile)

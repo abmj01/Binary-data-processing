@@ -2,6 +2,7 @@
 #include "student.h"
 #include <fstream>
 #include "person.h"
+#include <vector>
 
 /*
 int main() {
@@ -51,20 +52,38 @@ int main() {
 }
 */
 
+//// to display the hexadecimal value of a binary file "hexdump -C file.bin" in linux
+
 int main(){
     Person Ahmed;
-    Ahmed.name = "Ahmed Al-Ganad";
-    Ahmed.age = 22;
-    Ahmed.height = 175.4;
+    Ahmed.name = "Faris Flah";
+    Ahmed.age = 23;
+    Ahmed.height = 174.7305;
 
-    Ahmed.serialize(Ahmed, "person.bin");
+    Ahmed.serialize(Ahmed, "person2.bin");
    std::cout << sizeof(Ahmed) << std::endl;
 
     Person loadedPerson;
-    loadedPerson.deserialize(loadedPerson, "person.bin");
+    loadedPerson.deserialize(loadedPerson, "person2.bin");
 
     std::cout << "Loaded Person: " << loadedPerson.name << ", " << loadedPerson.age << " years old, "
     << loadedPerson.height << "m tall" <<std::endl;
 
 }
 
+/*
+#include "TextFileSerializer.h"
+
+int main(){
+    std::vector<std::string> originalData = {"Hello", "World", "Serialization", "Deserialization"};
+    const std::string filename = "example.txt";
+
+    TextFileSerializer::Serialize(originalData, filename);
+
+    std::vector<std::string> loadedData = TextFileSerializer::Deserialize<std::string>(filename);
+
+    for(const auto& item: loadedData){
+        std::cout << item << std::endl;
+    }
+}
+*/

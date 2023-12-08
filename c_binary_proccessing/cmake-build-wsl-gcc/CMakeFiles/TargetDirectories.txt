@@ -1,0 +1,3 @@
+/mnt/c/Users/ahmed/CLionProjects/Apc_binary_files_exc/c_binary_proccessing/cmake-build-wsl-gcc/CMakeFiles/c_binary_proccessing.dir
+/mnt/c/Users/ahmed/CLionProjects/Apc_binary_files_exc/c_binary_proccessing/cmake-build-wsl-gcc/CMakeFiles/edit_cache.dir
+/mnt/c/Users/ahmed/CLionProjects/Apc_binary_files_exc/c_binary_proccessing/cmake-build-wsl-gcc/CMakeFiles/rebuild_cache.dir
