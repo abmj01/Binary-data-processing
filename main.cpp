@@ -54,7 +54,7 @@ int main() {
 
 //// to display the hexadecimal value of a binary file "hexdump -C file.bin" in linux
 
-int main(){
+/*int main(){
     Person Ahmed;
     Ahmed.name = "Faris Flah";
     Ahmed.age = 23;
@@ -69,9 +69,8 @@ int main(){
     std::cout << "Loaded Person: " << loadedPerson.name << ", " << loadedPerson.age << " years old, "
     << loadedPerson.height << "m tall" <<std::endl;
 
-}
+}*/
 
-/*
 #include "TextFileSerializer.h"
 
 int main(){
@@ -80,10 +79,11 @@ int main(){
 
     TextFileSerializer::Serialize(originalData, filename);
 
-    std::vector<std::string> loadedData = TextFileSerializer::Deserialize<std::string>(filename);
+
+    //// teacher wrote this code
+    std::vector<std::string> loadedData = TextFileSerializer::Deserialize<std::string>(filename, vector_of_string_factory{});
 
     for(const auto& item: loadedData){
         std::cout << item << std::endl;
     }
 }
-*/

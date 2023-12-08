@@ -7,7 +7,10 @@ add_executable(Apc_binary_files_exc main.cpp
         student.h
         person.h
         person.cpp
-        TextFileSerializer.h)
+        TextFileSerializer.h
+        ifactory.h
+        vector_of_string_factory.cpp
+        vector_of_string_factory.h)
 target_compile_options(Apc_binary_files_exc PRIVATE
         $<$<CXX_COMPILER_ID:GNU,Clang>:-Wall -Wextra -pedantic>
         $<$<CXX_COMPILER_ID:MSVC>: /W4>

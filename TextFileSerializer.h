@@ -9,6 +9,7 @@
 #include <vector>
 #include <string>
 
+
 class TextFileSerializer {
 public:
 template <typename T>
@@ -27,7 +28,7 @@ static void Serialize(const std::vector<T> &data, const std::string &filename){
 }
 
 template<typename T>
-static std::vector<T> Deserialize(const std::string& filename){
+static std::vector<T> Deserialize(const std::string& filename, const ifactory<T> factory){
     std::vector<T> data{};
     std::ifstream file{filename};
 
@@ -35,9 +36,10 @@ static std::vector<T> Deserialize(const std::string& filename){
         throw std::runtime_error("Error opening the file for reading");
 
     T* item{};
-
-    while (std::getline(file , item))
-        data.push_back(item);
+    
+std::string line;
+    while (std::getline(file , line))
+        data.push_back(factory.construct_from_string(line));
 
     file.close();
     if(!file.good())
