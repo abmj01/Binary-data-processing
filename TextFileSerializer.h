@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "ifactory.h"
 
 
 class TextFileSerializer {
@@ -35,9 +36,9 @@ static std::vector<T> Deserialize(const std::string& filename, const ifactory<T>
     if (!file)
         throw std::runtime_error("Error opening the file for reading");
 
-    T* item{};
+//    T* item{};
     
-std::string line;
+    std::string line;
     while (std::getline(file , line))
         data.push_back(factory.construct_from_string(line));
 
@@ -47,6 +48,9 @@ std::string line;
 
     return data;
 }
+
+private:
+
 
 };
 
