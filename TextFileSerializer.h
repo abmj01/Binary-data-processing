@@ -19,13 +19,13 @@ static void Serialize(const std::vector<T> &data, const std::string &filename){
 
     if (!file.is_open())
         throw std::runtime_error("Error opening the file for writing");
+
     for (const auto &item: data)
         file << item << "\n";
 
     file.close();
 
-    if (!file.good())
-        throw std::invalid_argument("Error occurred in the writing time");
+    if (!file.good()) { throw std::invalid_argument("Error occurred in the writing time"); }
 }
 
 template<typename T>
@@ -38,7 +38,7 @@ static std::vector<T> Deserialize(const std::string& filename, const ifactory<T>
 
 //    T* item{};
     
-    std::string line;
+    std::string line{};
     while (std::getline(file , line))
         data.push_back(factory.construct_from_string(line));
 
@@ -49,10 +49,13 @@ static std::vector<T> Deserialize(const std::string& filename, const ifactory<T>
     return data;
 }
 
+
 private:
 
 
 };
+
+template class TextFileSerializer;
 
 
 #endif //APC_BINARY_FILES_EXC_TEXTFILESERIALIZER_H

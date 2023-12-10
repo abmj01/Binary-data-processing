@@ -5,7 +5,6 @@
 #include "vector_of_string_factory.h"
 
 template<typename T>
-
 T vector_of_string_factory<T>::construct_from_string(const std::string& s){
     T result;
     size_t start = 0;

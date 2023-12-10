@@ -54,36 +54,41 @@ int main() {
 
 //// to display the hexadecimal value of a binary file "hexdump -C file.bin" in linux
 
-/*int main(){
+int main(){
     Person Ahmed;
-    Ahmed.name = "Faris Flah";
-    Ahmed.age = 23;
-    Ahmed.height = 174.7305;
+    Ahmed.set_name("Ahmed Al-Ganad");
+    Ahmed.set_age(22);
+    Ahmed.set_height(175.67);
 
-    Ahmed.serialize(Ahmed, "person2.bin");
+    Ahmed.serialize(Ahmed, "person.bin");
    std::cout << sizeof(Ahmed) << std::endl;
 
     Person loadedPerson;
-    loadedPerson.deserialize(loadedPerson, "person2.bin");
+    loadedPerson.deserialize(loadedPerson, "person.bin");
 
-    std::cout << "Loaded Person: " << loadedPerson.name << ", " << loadedPerson.age << " years old, "
-    << loadedPerson.height << "m tall" <<std::endl;
+    std::cout << "Loaded Person: " << loadedPerson.name() << ", " << loadedPerson.age() << " years old, "
+    << loadedPerson.height() << "m tall" <<std::endl;
 
-}*/
+}
 
-#include "TextFileSerializer.h"
+/*#include "TextFileSerializer.h"
+#include "vector_of_string_factory.h"
 
-int main(){
+int main() {
     std::vector<std::string> originalData = {"Hello", "World", "Serialization", "Deserialization"};
     const std::string filename = "example.txt";
 
     TextFileSerializer::Serialize(originalData, filename);
 
+    // Instantiate the factory
+    vector_of_string_factory<std::vector<std::string>> factory;
 
-    //// teacher wrote this code
-    std::vector<std::string> loadedData = TextFileSerializer::Deserialize<std::string>(filename, vector_of_string_factory{});
+    // Use the correct static call for Deserialize
+    std::vector<std::string> loadedData = TextFileSerializer::Deserialize(filename, factory);
 
-    for(const auto& item: loadedData){
+    for (const auto &item : loadedData) {
         std::cout << item << std::endl;
     }
-}
+
+    return 0;
+}*/

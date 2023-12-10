@@ -16,3 +16,5 @@ target_compile_options(Apc_binary_files_exc PRIVATE
         $<$<CXX_COMPILER_ID:MSVC>: /W4>
         $<$<CXX_COMPILER_ID:GNU,Clang>:$<$<CONFIG:Debug>:-Og -g>>
 )
+
+add_subdirectory(c_binary_proccessing)
