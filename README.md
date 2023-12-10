@@ -7,10 +7,10 @@ Saif Ba Madhaf: `527028`
 
 
 In this project we will help you understand:
-* What binary data processing mean?
+* What is binary data processing?
 * What is it used for?
-* Why is it essential?
-* How to implement a program in C++ that process data?
+* Why is it important?
+* How to implement a program in C++ that process data in binary format?
 * * Serializing data.
 * * Deserializing data.
 * Explanation of the endianness concept.
@@ -30,19 +30,19 @@ Binary data processing is used for:
 * Data Encryption which is applying cryptographic algorithms to binary data.
 * Low-Level System Operations or direct manipulation of hardware or system-level data.
 
-There is more and more application of binary data processing, but we will suffice with that.
+There are more applications of binary data processing, but we will suffice with that.
 
-### Why is it essential?
+### Why is it improtant?
 
-I guess that the applications part somehow answered this question. However, Binary data processing is essential for the computers
-to manipulate and represent data in low levels. It also is essential for storage, communication through network, and system-level operation.
+I guess that the applications part somehow answered this question. However, Binary data processing is essential for computers
+to manipulate and represent data in low levels. It is also important for storage, communication through network, and system-level operation.
 
 
 ### How to implement a program in C++ that process data?
 
 #### We will start of with encoding or serializing files which is writing the data into binary format.
 
-We will start of with a simple class called Person:
+We will start with a simple class called Person:
 
 ```cpp
 class Person{
@@ -63,11 +63,11 @@ private:
 }
 ```
 
-Nothing wierd a person has a name, an age, and a height. And a constructor `Person` to create an instance. And some setters and getters for the private members.
+Nothing wierd a person has a name, an age, and a height. A constructor `Person` to create an instance. And some setters and getters for the private members.
 
 As you can see the name is a data type `string` ,  age `int`, and height `double`.
 
-We will start of with a function that serializes or encodes the data to a binary file called 
+We will start with a function that serializes or encodes the data to a binary file called 
 `serialize`.
 
 ```c++
