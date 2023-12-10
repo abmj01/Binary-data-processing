@@ -243,7 +243,7 @@ We create a new object variable `loadedPerson`. Then we call the member function
 `deserialilze` and adjust the parameters which is the object `loadedPerson` and the name of the file to read the binary data 
 from. At the end we can print the results in the console.
 
-#### how can I look to the values of the binary files
+#### how can I look at the values of the binary files
 
 Looking at the values of the binary file is not that simple because clion or Visual Studio does not let you see the 
 binary data easily. You can use a simple command in linux to display the result of the binary data. 
