@@ -1,5 +1,11 @@
 # Binary data processing
 
+
+Made by:
+Ahmed Al-Ganad: ` 528820`
+Saif Ba Madhaf: `527028`
+
+
 In this project we will help you understand:
 * What binary data processing mean?
 * What is it used for?
@@ -181,9 +187,139 @@ We then check if the file is good to go, if not we throw an `"error reading the 
 ```
 
 Starting of, we declare a variable `size_t nameSize`. And then we will use the [read()](https://en.cppreference.com/w/cpp/io/basic_istream/read)
-function that reads binary data from the `inFile`. If you remember back in the `serialize()` function, we
+function that reads binary data from the input file `inFile`.
+
+If you remember back in the `serialize()` function, we
 wrote the size of name ``` person.name_.size()``` into the output file created, see now we are retrieving that data to help adjust the
 memory needed to decode the name.
+
+
+```c++
+  std::vector<char> nameBuffer(nameSize);
+  inFile.read(nameBuffer.data(), nameSize);
+```
+
+We then declare a variable vector of characters `nameBuffer` and assign it's size with the nameSize we have gotten from
+the previous read function `inFile.read(reinterpret_cast<char*>(&nameSize), sizeof(size_t))`.
+
+Following, we read or retrieve every bit using the [data()](https://en.cppreference.com/w/cpp/container/vector/data) that
+returns each character inside the `std::vector<char> nameBuffer(nameSize)`. And we initialize the `n` number of element
+to be assigned.
+
+```c++
+person.name_.assign(nameBuffer.data(), nameSize);
+```
+After that we assign the value initialized using the read value to the `name_` member type.
+
+```c++
+    // Read the age and the height
+    inFile.read(reinterpret_cast<char*>(&person.age_), sizeof(int));
+    inFile.read(reinterpret_cast<char*> (&person.height_), sizeof(double));
+```
+
+Now, we read the data  of the persons age and height, again using `read()` function.
+
+```c++
+inFile.close();
+
+    if(!inFile.good())
+        throw std::invalid_argument("error occurred in the reading time");
+```
+
+After that we also close the file using the [close()](https://en.cppreference.com/w/cpp/io/basic_ofstream/close) function.
+And then check if the file did not face an issue during the process of reading the file.
+
+
+#### Implementation in the main
+```c++
+    Person loadedPerson;
+    loadedPerson.deserialize(loadedPerson, "person.bin");
+
+    std::cout << "Loaded Person: " << loadedPerson.name() << ", " << loadedPerson.age() << " years old, "
+    << loadedPerson.height() << "m tall" <<std::endl;
+```
+
+We create a new object variable `loadedPerson`. Then we call the member function
+`deserialilze` and adjust the parameters which is the object `loadedPerson` and the name of the file to read the binary data 
+from. At the end we can print the results in the console.
+
+#### how can I look to the values of the binary files
+
+Looking at the values of the binary file is not that simple because clion or Visual Studio does not let you see the 
+binary data easily. You can use a simple command in linux to display the result of the binary data. 
+```commandline
+hexdump -C name_of_your_binary_file.bin
+```
+
+This will output something like this in our instance in the main:
+```commandline
+00000000  0e 00 00 00 00 00 00 00  41 68 6d 65 64 20 41 6c  |........Ahmed Al|
+00000010  2d 47 61 6e 61 64 16 00  00 00 00 00 00 a0 70 f5  |-Ganad........p.|
+00000020  65 40                                             |e@|
+00000022
+```
+As you can see, 41 represent the letter 'A' in ASCII format, 68 represent 'l' and so on.
+
+
+That's it for deserializing!
+
+
+#### Explanation of the endianness concept.
+
+[Endianness](https://en.wikipedia.org/wiki/Endianness) is a term used to describe the order in which 
+bytes are stored in computer memory or data communication.
+
+To simplify this out. The is two main types of endian `Big-Endian` and `Small-Endian`.
+
+The Big-Endian is a term used to say that a certain system stores the memory of the most significant bit
+in the lowest memory. 
+
+In contrast,  the Small-Endian is a system that stores the least significant bit in the lowest memory.
+
+This image will help you further understand the difference between big and small endianness.
+![Endianness Image](https://www.baeldung.com/wp-content/uploads/sites/4/2022/10/endianness-1024x317.png)
+
+--------------------------------------------------------------------------------------------------------------------
+
+### Examples in code to differentiate between big and small endianness
+
+```c++
+void check_for_endianness()
+{
+    // Declare an unsigned integer variable and initialize it to 1.
+    unsigned int x = 1;
+
+    // Declare a pointer to a character and assign it the address of x.
+    char *c = (char*) &x;
+
+    // Return the integer value of the first byte pointed to by c.
+    // If the architecture is little-endian, the value will be 1; otherwise, it will be 0.
+    if ((int)*c == 1){
+        std::cout << "This system is a Little endian" << std::endl;
+    } else{
+        std::cout << "This system is a Big endian" << std::endl;
+    }
+
+}
+```
+To check the endian the function `check_for_endian()` starts of with simple declaration of an `unsigned int x = 1`
+
+
+After that `char *c = (char*) &x;` we declare a pointer to a char `c` and assigns it the address of the integer variable x.
+This allows us to access the individual bytes of the integer.
+
+Finally, we check `(int)*c` this returns an integer value of the first byte pointed
+to by `c`, by referencing it using `*c`. We retrieve the value stored at the memory location pointed
+to by `c`. The cast `(int)` is used to convert the character value to integer.
+
+In Little-endian systems, the least significant byte is stored first, so the value at the first byte `*c` will be 1. 
+In Big-endian systems, the most significant byte is stored first, so the value at the first byte will be 0.
+
+
+That's it for this project hope you enjoyed and everything was clear.
+
+
+
 
 
 
