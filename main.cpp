@@ -54,6 +54,8 @@ int main() {
 
 //// to display the hexadecimal value of a binary file "hexdump -C name_of_your_binary_file.bin" in linux
 
+
+// Function to identify the endianness of a certain device
 void check_for_endianness()
 {
     unsigned int x = 1;
@@ -89,24 +91,4 @@ int main(){
 
 }
 
-/*#include "TextFileSerializer.h"
-#include "vector_of_string_factory.h"
 
-int main() {
-    std::vector<std::string> originalData = {"Hello", "World", "Serialization", "Deserialization"};
-    const std::string filename = "example.txt";
-
-    TextFileSerializer::Serialize(originalData, filename);
-
-    // Instantiate the factory
-    vector_of_string_factory<std::vector<std::string>> factory;
-
-    // Use the correct static call for Deserialize
-    std::vector<std::string> loadedData = TextFileSerializer::Deserialize(filename, factory);
-
-    for (const auto &item : loadedData) {
-        std::cout << item << std::endl;
-    }
-
-    return 0;
-}*/

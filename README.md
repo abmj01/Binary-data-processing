@@ -274,7 +274,7 @@ To simplify this out. The is two main types of endian `Big-Endian` and `Small-En
 The Big-Endian is a term used to say that a certain system stores the memory of the most significant bit
 in the lowest memory. 
 
-In contrast,  the Small-Endian is a system that stores the least significant bit in the lowest memory.
+In contrast, the Small-Endian is a system that stores the least significant bit in the lowest memory.
 
 This image will help you further understand the difference between big and small endianness.
 ![Endianness Image](https://www.baeldung.com/wp-content/uploads/sites/4/2022/10/endianness-1024x317.png)

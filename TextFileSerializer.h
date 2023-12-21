@@ -55,7 +55,7 @@ private:
 
 };
 
-template class TextFileSerializer;
+
 
 
 #endif //APC_BINARY_FILES_EXC_TEXTFILESERIALIZER_H
