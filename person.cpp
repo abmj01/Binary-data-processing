@@ -71,9 +71,11 @@ void Person::set_height(float height){
 const std::string& Person::name() const{
     return name_;
 }
+
 double Person::height() const{
     return height_;
 }
+
 int Person::age() const{
     return age_;
 }

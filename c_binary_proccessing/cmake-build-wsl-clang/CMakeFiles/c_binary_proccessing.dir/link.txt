@@ -1,1 +1,0 @@
-/usr/bin/clang -g CMakeFiles/c_binary_proccessing.dir/main.c.o -o c_binary_proccessing 
